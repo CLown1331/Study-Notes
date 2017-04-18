@@ -49,12 +49,12 @@ int main() {
 	}
 
 	while( !Q.empty() || !PQ.empty() ) {
-		if( !Q.empty() ) {
+		while( !Q.empty() ) {
 			hand = Q.front();
 			if( hand.arrival_time <= time ) {
 				Q.pop();
 				PQ.push( hand );
-			}
+			} else break;
 			//cout << time << " " << hand.first << " " << hand.second << "\n";
 		}
 		if( !PQ.empty() ) {
