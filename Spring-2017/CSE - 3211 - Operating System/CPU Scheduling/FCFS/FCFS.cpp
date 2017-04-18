@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+/// FCFS.cpp
 using namespace std;
 
 struct process {
