@@ -1,1 +1,1 @@
-# Priority Scheduling Premptive CPU Scheduling
+# Priority Scheduling Non Premptive CPU Scheduling
