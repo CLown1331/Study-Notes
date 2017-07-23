@@ -23,10 +23,51 @@
  */
 package highlow;
 
+import java.util.Scanner;
 /**
  *
  * @author CLown1331
  */
 public class HighLow {
-    Deck deck = new Deck();
+    private Deck deck;
+    private Scanner in;
+    private int score;
+    
+    HighLow() {
+        deck = new Deck();
+        in = new Scanner( System.in );
+        score = 0;
+    }
+    
+    public void play() {
+        deck.shuffleDeck();
+        System.out.printf( "Type 1 for High and 0 for Low\n" );
+        int type;
+        while( deck.hasNext() == true ) {
+            type = in.nextInt();
+            evaluate( type, deck.getNow(), deck.getNext() );
+            System.out.printf( "Score: %d\n", score );
+            deck.next();
+        }
+    }
+    
+    void evaluate( int type, Card now, Card next ) {
+        if( type == 1 ) {
+            if( now.getCardValue() <= next.getCardValue() ) {
+                System.out.printf( "Correct, " );
+                score++;
+            } else {
+                System.out.printf( "Correct, " );
+                score--;
+            }
+        } else {
+            if( now.getCardValue() >= next.getCardValue() ) {
+                System.out.printf( "Correct, " );
+                score++;
+            } else {
+                System.out.printf( "Correct, " );
+                score--;
+            }
+        }
+    }
 }

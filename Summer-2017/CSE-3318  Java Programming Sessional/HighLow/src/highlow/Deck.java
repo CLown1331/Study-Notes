@@ -33,17 +33,14 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Deck {
     private ArrayList < Card > deck;
     private String[] cardNames = { "A", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
-    private boolean built = false;
+    private int currentIndex;
     
     Deck() {
         build();
+        currentIndex = 0;
     }
     
     void build() {
-        if( built == true ) {
-            return;
-        }
-        built = true;
         addSuit( "Hearts" );
         addSuit( "Diamonds" );
         addSuit( "Clubs" );
@@ -66,5 +63,21 @@ public class Deck {
             deck.set( index, deck.get( i ) );
             deck.set( i, hand );
         }
+    }
+    
+    public boolean hasNext() {
+        return currentIndex + 1 < deck.size() ? true : false;
+    }
+    
+    public Card getNow() {
+        return deck.get( currentIndex );
+    }
+    
+    public Card getNext() {
+        return deck.get( currentIndex + 1 );
+    }
+    
+    public void next() {
+        currentIndex++;
     }
 }
