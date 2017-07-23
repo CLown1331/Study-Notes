@@ -23,10 +23,48 @@
  */
 package highlow;
 
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 /**
  *
  * @author CLown1331
  */
 public class Deck {
+    private ArrayList < Card > deck;
+    private String[] cardNames = { "A", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King" };
+    private boolean built = false;
     
+    Deck() {
+        build();
+    }
+    
+    void build() {
+        if( built == true ) {
+            return;
+        }
+        built = true;
+        addSuit( "Hearts" );
+        addSuit( "Diamonds" );
+        addSuit( "Clubs" );
+        addSuit( "Spades" );
+    }
+    
+    void addSuit( String suitName ) {
+        for( int i=0; i<cardNames.length; i++ ) {
+            deck.add( new Card( suitName, cardNames[i], i ) );
+        }
+    }
+    
+    public void shuffleDeck() {
+        Random rand = new Random();
+        int index;
+        Card hand;
+        for( int i=deck.size()-1; i>0; i-- ) {
+            index = rand.nextInt( i + 1 );
+            hand = deck.get( index );
+            deck.set( index, deck.get( i ) );
+            deck.set( i, hand );
+        }
+    }
 }
