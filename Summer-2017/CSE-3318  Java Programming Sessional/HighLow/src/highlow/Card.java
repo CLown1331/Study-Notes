@@ -41,4 +41,8 @@ public class Card {
     public int getCardValue() {
         return this.cardValue;
     }
+    
+    public String toString() {
+        return cardName + " of " + suitName;
+    }
 }

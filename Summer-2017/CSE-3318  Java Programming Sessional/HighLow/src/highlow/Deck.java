@@ -36,6 +36,7 @@ public class Deck {
     private int currentIndex;
     
     Deck() {
+        deck = new ArrayList < Card > ();
         build();
         currentIndex = 0;
     }

@@ -41,10 +41,13 @@ public class HighLow {
     
     public void play() {
         deck.shuffleDeck();
-        System.out.printf( "Type 1 for High and 0 for Low\n" );
         int type;
         while( deck.hasNext() == true ) {
-            type = in.nextInt();
+            System.out.printf( "Current Card: %s\n", deck.getNow() );
+            do {
+                System.out.printf( "Type 1 for High and 0 for Low\n" );
+                type = in.nextInt();
+            } while( type > 1 || type < 0 );
             evaluate( type, deck.getNow(), deck.getNext() );
             System.out.printf( "Score: %d\n", score );
             deck.next();
