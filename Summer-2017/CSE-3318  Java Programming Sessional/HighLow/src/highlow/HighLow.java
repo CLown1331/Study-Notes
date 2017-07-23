@@ -28,5 +28,5 @@ package highlow;
  * @author CLown1331
  */
 public class HighLow {
-    
+    Deck deck = new Deck();
 }
