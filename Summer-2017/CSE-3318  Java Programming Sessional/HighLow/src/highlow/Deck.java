@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2017 CLown1331.
+ * Copyright 2017 Araf A1-Jami.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 /**
  *
- * @author CLown1331
+ * @author Araf A1-Jami
  */
 public class Deck {
     private ArrayList < Card > deck;
