@@ -60,7 +60,7 @@ public class HighLow {
                 System.out.printf( "Correct, " );
                 score++;
             } else {
-                System.out.printf( "Correct, " );
+                System.out.printf( "Wrong, " );
                 score--;
             }
         } else {
@@ -68,7 +68,7 @@ public class HighLow {
                 System.out.printf( "Correct, " );
                 score++;
             } else {
-                System.out.printf( "Correct, " );
+                System.out.printf( "Wrong, " );
                 score--;
             }
         }
