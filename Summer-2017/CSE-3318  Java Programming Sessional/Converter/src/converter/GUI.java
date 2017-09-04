@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -75,11 +76,15 @@ public class GUI extends JFrame {
 
         @Override
         public void actionPerformed( ActionEvent e ) {
-            if( options.getSelectedItem().toString().equals( "Distance" ) ) {
-                output.setText( Double.toString( converter.feetToMeter( Double.parseDouble( input.getText() ) ) ) );
-            }
-            else {
-                output.setText( Double.toString( converter.celsiusToFahrenheit( Double.parseDouble( input.getText() ) ) ) );
+            try {
+                if( options.getSelectedItem().toString().equals( "Distance" ) ) {
+                    output.setText( Double.toString( converter.feetToMeter( Double.parseDouble( input.getText() ) ) ) );
+                }
+                else {
+                    output.setText( Double.toString( converter.celsiusToFahrenheit( Double.parseDouble( input.getText() ) ) ) );
+                }
+            } catch( NumberFormatException ex ) {
+                JOptionPane.showMessageDialog( null, ex );
             }
         }
     }
